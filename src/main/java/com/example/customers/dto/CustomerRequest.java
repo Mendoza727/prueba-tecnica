@@ -2,8 +2,11 @@ package com.example.customers.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
 
+@Data
 public class CustomerRequest {
+
     @NotBlank(message = "Name is required")
     private String name;
 
@@ -11,8 +14,6 @@ public class CustomerRequest {
     @NotBlank(message = "Email is required")
     private String email;
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    @NotBlank(message = "Phone is required")
+    private String phone;
 }
