@@ -45,3 +45,5 @@ target/
 
 # environment variables
 .env
+.env.*
+!.env.example
