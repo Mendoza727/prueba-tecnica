@@ -1,0 +1,8 @@
+services:
+  customers:
+    build: .
+    container_name: customers-dev
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+    ports:
+      - "8080:8080"

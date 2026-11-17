@@ -1,0 +1,8 @@
+services:
+  customers:
+    build: .
+    container_name: customers-test
+    environment:
+      SPRING_PROFILES_ACTIVE: test
+    ports:
+      - "8081:8081"

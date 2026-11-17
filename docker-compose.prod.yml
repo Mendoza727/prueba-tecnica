@@ -1,0 +1,8 @@
+services:
+  customers:
+    build: .
+    container_name: customers-prod
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+    ports:
+      - "9090:9090"
