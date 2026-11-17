@@ -1,8 +1,36 @@
+# Solo PROD — app + PostgreSQL
 services:
+  db:
+    image: postgres:16-alpine
+    container_name: customers-db
+    environment:
+      POSTGRES_DB: customers
+      POSTGRES_USER: customers
+      POSTGRES_PASSWORD: customers
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U customers -d customers"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
   customers:
     build: .
     container_name: customers-prod
     environment:
       SPRING_PROFILES_ACTIVE: prod
+      # Dentro de Compose el host de Postgres es el servicio "db", NO localhost
+      DB_URL: jdbc:postgresql://db:5432/customers
+      DB_USER: customers
+      DB_PASSWORD: customers
     ports:
       - "9090:9090"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

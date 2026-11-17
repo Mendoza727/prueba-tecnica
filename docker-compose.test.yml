@@ -1,3 +1,4 @@
+# Solo TEST — H2 dentro de la app
 services:
   customers:
     build: .

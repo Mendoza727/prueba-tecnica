@@ -1,3 +1,4 @@
+# Solo DEV — H2 vive dentro de la app (no necesita Postgres)
 services:
   customers:
     build: .
