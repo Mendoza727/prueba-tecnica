@@ -1,0 +1,159 @@
+{
+  "info": {
+    "_postman_id": "2d62f8c4-2a37-47e2-b228-20d81d0d0885",
+    "name": "Customers (PROD - ONLY SQL)",
+    "description": "Colección con SQL: DEV/TEST (H2) y PROD (PostgreSQL en Docker :9090).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "DEV",
+      "item": [
+        {
+          "name": "New Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Juan Perez\",\n  \"email\": \"juan@emaildev.com\",\n  \"phone\": \"+573001234567\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrlDev}}/api/customers",
+              "host": ["{{baseUrlDev}}"],
+              "path": ["api", "customers"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Customers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrlDev}}/api/customers",
+              "host": ["{{baseUrlDev}}"],
+              "path": ["api", "customers"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "TEST",
+      "item": [
+        {
+          "name": "New Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Juan Perez\",\n  \"email\": \"juan@emailtest.com\",\n  \"phone\": \"+573013453456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrlTest}}/api/customers",
+              "host": ["{{baseUrlTest}}"],
+              "path": ["api", "customers"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Customers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrlTest}}/api/customers",
+              "host": ["{{baseUrlTest}}"],
+              "path": ["api", "customers"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PROD",
+      "item": [
+        {
+          "name": "New Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Juan Perez\",\n  \"email\": \"juan@emailprod.com\",\n  \"phone\": \"+573013453456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrlProd}}/api/customers",
+              "host": ["{{baseUrlProd}}"],
+              "path": ["api", "customers"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Customers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrlProd}}/api/customers",
+              "host": ["{{baseUrlProd}}"],
+              "path": ["api", "customers"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrlDev",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "baseUrlTest",
+      "value": "http://localhost:8081"
+    },
+    {
+      "key": "baseUrlProd",
+      "value": "http://localhost:9090"
+    }
+  ]
+}
