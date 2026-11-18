@@ -42,3 +42,7 @@ target/
 .env
 *.pem
 .DS_Store
+
+# environment variables
+!.env.example
+.env.prod
